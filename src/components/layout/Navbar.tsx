@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <a href="#hero" className="navbar__logo" aria-label={`${personal.name} — home`}>
-        Pravinkumar<span className="gradient-text"> S.</span>
+        Pravinkumar<span className="gradient-text"> S</span>
       </a>
 
       <nav className="navbar__links" aria-label="Primary navigation">
