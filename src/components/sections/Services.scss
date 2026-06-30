@@ -1,0 +1,35 @@
+@use '../../styles/mixins';
+
+.services {
+  @include mixins.section-container;
+
+  &__title { max-width: 760px; margin-bottom: 44px; }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    @include mixins.respond(lg) { grid-template-columns: repeat(2, 1fr); }
+    @include mixins.respond(sm) { grid-template-columns: 1fr; }
+  }
+
+  &__card {
+    @include mixins.glass-card;
+    @include mixins.hover-lift;
+    padding: 26px 22px;
+
+    h3 { font-size: 17px; margin: 14px 0 8px; }
+    p { font-size: 14px; margin: 0; }
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-gradient);
+    color: #06120c;
+  }
+}

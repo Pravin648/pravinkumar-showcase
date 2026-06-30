@@ -1,0 +1,80 @@
+@use '../../styles/mixins';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+
+  @include mixins.respond(md) { padding: 14px 20px; }
+
+  &--scrolled {
+    background: var(--bg-glass);
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-card);
+    padding: 12px 32px;
+    @include mixins.respond(md) { padding: 10px 20px; }
+  }
+
+  &__logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--text-primary);
+    @include mixins.focus-ring;
+  }
+
+  &__links {
+    display: flex;
+    gap: 28px;
+    @include mixins.respond(lg) { display: none; }
+
+    a {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+      @include mixins.focus-ring;
+
+      &:hover { color: var(--accent-primary); }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__cta {
+    background: var(--accent-gradient);
+    color: #06120c;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 9px 20px;
+    border-radius: 999px;
+    @include mixins.respond(md) { display: none; }
+  }
+
+  &__menu-btn {
+    color: var(--text-primary) !important;
+    display: none !important;
+    @include mixins.respond(lg) { display: inline-flex !important; }
+  }
+
+  &__drawer {
+    width: 260px;
+    height: 100%;
+    padding: 16px;
+    background: var(--bg-secondary);
+
+    a { color: var(--text-primary); font-weight: 600; }
+  }
+}

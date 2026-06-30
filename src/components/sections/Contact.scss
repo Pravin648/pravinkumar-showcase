@@ -1,0 +1,45 @@
+@use '../../styles/mixins';
+
+.contact {
+  @include mixins.section-container;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    @include mixins.respond(lg) { grid-template-columns: 1fr; }
+  }
+
+  &__title { margin-bottom: 16px; }
+  &__text { margin-bottom: 28px; max-width: 480px; }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text-primary);
+      &:hover { color: var(--accent-primary); }
+    }
+  }
+
+  &__form {
+    @include mixins.glass-card;
+    padding: 32px;
+  }
+
+  &__submit {
+    margin-top: 16px !important;
+    background: var(--accent-gradient) !important;
+    color: #06120c !important;
+    font-weight: 700 !important;
+    border-radius: 999px !important;
+    padding: 12px 28px !important;
+  }
+}

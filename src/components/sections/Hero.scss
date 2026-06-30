@@ -1,0 +1,110 @@
+@use '../../styles/mixins';
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 24px 80px;
+  overflow: hidden;
+  @include mixins.respond(md) { padding: 120px 20px 60px; min-height: auto; }
+
+  &__glow {
+    position: absolute;
+    top: -200px;
+    right: -150px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(61, 220, 151, 0.18), transparent 70%);
+    filter: blur(10px);
+    z-index: 0;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__headline {
+    font-size: clamp(34px, 5.5vw, 56px);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+  }
+
+  &__subheadline {
+    font-size: clamp(16px, 2vw, 19px);
+    color: var(--text-secondary);
+    max-width: 680px;
+    margin: 0 auto 36px;
+  }
+
+  &__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 56px;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 640px;
+    margin: 0 auto;
+    @include mixins.respond(sm) { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__stat-value {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  &__stat-label {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    text-align: center;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14.5px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  @include mixins.focus-ring;
+
+  &--primary {
+    background: var(--accent-gradient);
+    color: #06120c;
+    box-shadow: var(--shadow-glow);
+    &:hover { transform: translateY(-2px); }
+  }
+
+  &--outline {
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    &:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+  }
+
+  &--ghost {
+    color: var(--text-secondary);
+    &:hover { color: var(--accent-primary); }
+  }
+}

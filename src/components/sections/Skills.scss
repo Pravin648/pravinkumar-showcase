@@ -1,0 +1,45 @@
+@use '../../styles/mixins';
+
+.skills {
+  @include mixins.section-container;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+
+  &__title { max-width: 760px; margin-bottom: 44px; }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 48px;
+    @include mixins.respond(md) { grid-template-columns: 1fr; }
+  }
+
+  &__category {
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+      display: inline-block;
+      border-bottom: 2px solid var(--accent-primary);
+      padding-bottom: 4px;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    white-space: nowrap;
+  }
+}

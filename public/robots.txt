@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pravinkumars.dev/sitemap.xml

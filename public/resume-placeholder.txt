@@ -1,0 +1,2 @@
+Replace this file with your real resume PDF named "Pravinkumar-S-Resume.pdf"
+and update the download link in src/data/siteData.ts (resumeUrl field).

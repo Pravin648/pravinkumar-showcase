@@ -1,0 +1,46 @@
+@use 'variables' as v;
+
+@mixin respond($bp) {
+  @if $bp == sm { @media (max-width: v.$breakpoint-sm) { @content; } }
+  @if $bp == md { @media (max-width: v.$breakpoint-md) { @content; } }
+  @if $bp == lg { @media (max-width: v.$breakpoint-lg) { @content; } }
+  @if $bp == xl { @media (max-width: v.$breakpoint-xl) { @content; } }
+}
+
+@mixin section-container {
+  max-width: v.$section-max-width;
+  margin: 0 auto;
+  padding: 96px 24px;
+  @include respond(md) { padding: 64px 20px; }
+}
+
+@mixin glass-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+@mixin hover-lift {
+  &:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-glow), var(--shadow-card);
+  }
+}
+
+@mixin gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+  }
+}

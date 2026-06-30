@@ -1,0 +1,15 @@
+@use '../../styles/mixins';
+
+.projects {
+  @include mixins.section-container;
+
+  &__title { max-width: 760px; margin-bottom: 44px; }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    @include mixins.respond(lg) { grid-template-columns: repeat(2, 1fr); }
+    @include mixins.respond(md) { grid-template-columns: 1fr; }
+  }
+}
